@@ -4,7 +4,7 @@ import connectDB from "./config/db.js";
 import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
-
+import taskRoutes from "./routes/taskRoutes.js";
 dotenv.config();
 connectDB();
 const app = express();
@@ -19,6 +19,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
+app.use("/api/tasks", taskRoutes);
 app.get("/", (req, res) => {
   res.send("Server is running");
 });

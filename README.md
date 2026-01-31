@@ -11,3 +11,5 @@ Day 4: Project model and protected create project API
 Day 5: Get all projects of logged-in user
 
 Day 6: Task model with relations to project and user
+
+Day 7: Create task inside project (protected route)
