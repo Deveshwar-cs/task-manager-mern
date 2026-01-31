@@ -15,3 +15,5 @@ Day 6: Task model with relations to project and user
 Day 7: Create task inside project (protected route)
 
 Day 8: Get all tasks of a project (user filtered)
+
+Day 9: Update task status with user ownership check
