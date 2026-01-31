@@ -7,3 +7,5 @@ Day 2: User model and register API with hashed password
 Day 3: Login API with JWT and auth middleware
 
 Day 4: Project model and protected create project API
+
+Day 5: Get all projects of logged-in user
