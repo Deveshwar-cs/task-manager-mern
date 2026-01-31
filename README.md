@@ -13,3 +13,5 @@ Day 5: Get all projects of logged-in user
 Day 6: Task model with relations to project and user
 
 Day 7: Create task inside project (protected route)
+
+Day 8: Get all tasks of a project (user filtered)

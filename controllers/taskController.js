@@ -27,3 +27,18 @@ export const createTask = async (req, res) => {
     res.status(500).json({message: error.message});
   }
 };
+
+export const getTaskByProject = async (req, res) => {
+  try {
+    const {projectId} = req.params;
+
+    const tasks = await Task.find({
+      project: projectId,
+      user: req.user._id,
+    }).sort({createdAt: -1});
+
+    res.status(200).json(tasks);
+  } catch (error) {
+    res.status(500).json({message: error.message});
+  }
+};
