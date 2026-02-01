@@ -3,6 +3,7 @@ import {
   createTask,
   deleteTask,
   getTaskByProject,
+  updateTask,
   updateTaskStatus,
 } from "../controllers/taskController.js";
 import protect from "../middleware/protect.js";
@@ -12,5 +13,6 @@ router.post("/createTask/:projectId", protect, createTask);
 router.get("/getTasks/:projectId", protect, getTaskByProject);
 router.put("/updateStatus/:taskId", protect, updateTaskStatus);
 router.delete("/deleteTask/:taskId", protect, deleteTask);
+router.put("/updateTask/:taskId", protect, updateTask);
 
 export default router;

@@ -85,3 +85,28 @@ export const deleteTask = async (req, res) => {
     res.status(500).json({message: error.message});
   }
 };
+
+export const updateTask = async (req, res) => {
+  try {
+    const {taskId} = req.params;
+    const {title, description, dueDate} = req.body;
+
+    const task = await Task.findById(taskId);
+
+    if (!task) {
+      return res.status(404).json({message: "Task not found"});
+    }
+
+    if (task.user.toString() !== req.user.id) {
+      return res.status(401).json({message: "Unauthorized"});
+    }
+    if (title !== undefined) task.title = title;
+    if (description !== undefined) task.description = description;
+    if (dueDate !== undefined) task.dueDate = description;
+    await task.save();
+
+    res.json(task);
+  } catch (error) {
+    res.status(500).json({message: error.message});
+  }
+};

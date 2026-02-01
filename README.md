@@ -20,3 +20,5 @@ Day 9: Update task status with user ownership check
 
 This backend connects to:
 frontend Repo: <https://github.com/Deveshwar-cs/task-manager-frontend.git>
+
+Day 24: Update project and task APIs
