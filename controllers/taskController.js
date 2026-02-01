@@ -65,3 +65,23 @@ export const updateTaskStatus = async (req, res) => {
     res.status(500).json({message: error.message});
   }
 };
+
+export const deleteTask = async (req, res) => {
+  try {
+    const {taskId} = req.params;
+    const task = await Task.findById(taskId);
+
+    if (!task) {
+      return res.status(404).json({message: "Task not found"});
+    }
+
+    if (task.user.toString() !== req.user.id) {
+      return res.status(401).json({message: "unauthorized"});
+    }
+
+    await task.deleteOne();
+    res.json({message: "Task deleted successfully"});
+  } catch (error) {
+    res.status(500).json({message: error.message});
+  }
+};

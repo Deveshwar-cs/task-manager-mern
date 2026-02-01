@@ -5,17 +5,19 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/authRoutes.js";
 import projectRoutes from "./routes/projectRoutes.js";
 import taskRoutes from "./routes/taskRoutes.js";
-dotenv.config();
-connectDB();
+
 const app = express();
+app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://locahost:5173", "http://your-frontend.vercel.app"],
+    origin: ["http://localhost:5173", "http://your-frontend.vercel.app"],
     credentials: true,
   }),
 );
-app.use(express.json());
+
+dotenv.config();
+connectDB();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);

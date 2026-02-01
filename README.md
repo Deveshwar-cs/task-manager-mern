@@ -17,3 +17,6 @@ Day 7: Create task inside project (protected route)
 Day 8: Get all tasks of a project (user filtered)
 
 Day 9: Update task status with user ownership check
+
+This backend connects to:
+frontend Repo: <https://github.com/Deveshwar-cs/task-manager-frontend.git>
