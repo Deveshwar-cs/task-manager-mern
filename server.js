@@ -11,7 +11,10 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://your-frontend.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "task-manager-frontend-rho-eight.vercel.app",
+    ],
     credentials: true,
   }),
 );
