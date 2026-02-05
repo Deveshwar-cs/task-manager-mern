@@ -51,3 +51,22 @@ export const updateProjects = async (req, res) => {
     res.status(500).json({message: error.message});
   }
 };
+
+export const deleteProject = async (req, res) => {
+  try {
+    const {projectId} = req.params;
+
+    const project = await Project.findOne({
+      _id: projectId,
+      user: req.user._id,
+    });
+    if (!project) {
+      return res.status(404).json({message: "Project not found"});
+    }
+    await project.deleteOne();
+
+    res.status(200).json({message: "Project deleted successfully"});
+  } catch (error) {
+    res.status(500).json({message: error.message});
+  }
+};
